@@ -35,20 +35,8 @@ We aim to develop a fully functioning quadruped robot and train it exclusively u
 #### Phase 1
 We've already started working on the project since a few weeks ago, with a starter project! We want to get a solid understanding of the pipeline for the project, from training to deployment on real robot, so we are repoducing a Capstone project from a team at the University of British Columbia (more information about it [here](https://jonah-gourlay44.github.io/gym2real/)) and we're calling it: TWIP! In short, it's a Two-Wheeled Inserve Pendulum robot (thereby its name) that is learning how to balance itself while idling & move around without tipping over.
 
-{% 
-  include embed/video.html src='https://github.com/user-attachments/assets/5254aa9d-2d12-40b4-b20e-065c5ee03ea8' 
-  title="First training attempt"
-  autoplay=true
-  loop=true
-  muted=true
-%}
-{% 
-  include embed/video.html src='https://github.com/user-attachments/assets/3507cec9-f443-455e-bc23-1642388d4d98' 
-  title="Mature training attempt"
-  autoplay=true
-  loop=true
-  muted=true
-%}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/huhGoARHaEw?si=dOkc-cBJw2jWvxHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_UUag1xtsHA?si=pbLMAOQYGroz8Zw3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 #### Phase 2
 The real meat of our project is in Newton: a 4 legged robotics educational platform for students & researchers to expand into whatever field they need. Building off the popular open source robot dog platform from the [Open Dynamic Robot Initiative (ODRI)](https://open-dynamic-robot-initiative.github.io/), [Solo12](https://solo.pal-robotics.com/solo), we’re aiming to get a fully Deep RL (DRL) trained robot.
