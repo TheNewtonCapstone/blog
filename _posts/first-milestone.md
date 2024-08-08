@@ -1,9 +1,3 @@
-Intentions for this blog(to be removed) :
-    1. Write about the experience
-    2. Going for narration and less explanation(can cover on how some error are resolved in a latter post?)
-    3. We can add if it's too fragmented we can cut(have more content)
-    4. Bordeline trying to be comical cause it is!
-
 ```
 A journey of a thousand miles begins with a single step
 ```
@@ -16,6 +10,7 @@ We had a CAD design, and the *peeps* recommended laser cutting, but we couldn't 
 
 
 ### Firmware: The Struggle
+![image](https://github.com/user-attachments/assets/fb555886-e2ff-465c-b662-a1af762f2362)
 
 [insert boring explanation of what the firmware is supposed to do]
 The goal was to get our setup running the model. 
