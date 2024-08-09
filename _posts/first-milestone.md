@@ -22,3 +22,7 @@ The jetson had some issues building the environment—of course, it did.
 We never figured out exactly what was wrong, but [Dusty-nv](https://github.com/dusty-nv/jetson-containers)  got us through it.
 
 Once we got the environment up, we were ready to run any ONNX model we wanted. The final hurdle was getting the communication right. Just a heads-up: if you ever work with micro-ROS, think hard about memory management. It’s a pain you don’t want.
+
+### Software: The Ideal Environment
+This is where the sky is blue and the sun is shining... for now. Since we had a working model which could balance itself in the simulation, we decided our next move would be to try to mimic real-life in isaac sim as close as possible. Houssam took care of domain randomization while Augusto was using perlin noise terrain generation for the terrain randomization. 
+
