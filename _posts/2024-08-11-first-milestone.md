@@ -1,6 +1,6 @@
 ---
 title: "First Milestone!"
-date: 2024-08-10
+date: 2024-08-11
 categories: [META]
 tags: [team, meta, timeline, goals] 
 author: [amp, sis, gc, her]
