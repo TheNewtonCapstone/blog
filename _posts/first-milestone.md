@@ -1,6 +1,12 @@
-```
-A journey of a thousand miles begins with a single step
-```
+---
+title: "First Milestone!"
+date: 2024-08-10
+categories: [META]
+tags: [team, meta, timeline, goals] 
+author: [amp, sis, gc, her]
+---
+
+> A journey of a thousand miles begins with a single step
 
 Last Thursday, we took a big step. It was the first tryout of our project. We were filled with emotions, anticipation, and a little bit of dread, all mixed up together. We expected failure, and we weren't disappointed.
 
