@@ -14,7 +14,7 @@ Last Thursday, we took a big step. It was the first tryout of our project. We we
 
 We had a CAD design, and the *peeps* recommended laser cutting, but we couldn't get that done. Houssam was ready to throw money at the problem, but we went with 3D printing instead. Ryan sliced the part for printing. It didn't fit, just as we expected. Camille and his friend Alex banged the parts together, hoping they’d stay put. They didn’t.
 
-
+<iframe width="315" height="560" src="fJqC3l1YIR4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### Firmware: The Struggle
 ![image](https://github.com/user-attachments/assets/fb555886-e2ff-465c-b662-a1af762f2362)
