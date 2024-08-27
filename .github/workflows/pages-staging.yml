@@ -37,7 +37,7 @@ jobs:
       - name: Patch Jekyll Config
         # Replace the baseurl in _config.yml with '/blog-staging' and PR number
         run: |
-          sed -i "s|baseurl: \"/blog\"|baseurl: \"/blog-staging/${{ github.event.number }}\"|g" _config.yml
+          sed -i "s|baseurl: \"/blog\"|baseurl: \"/blog-staging-${{ github.event.number }}\"|g" _config.yml
           
       - name: Setup Pages
         id: pages
