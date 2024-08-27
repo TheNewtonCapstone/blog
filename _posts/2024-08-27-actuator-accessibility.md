@@ -16,7 +16,7 @@ A FDM 3D printed cycloidal drive was initially designed to fit in a 5cmx5cmx5cm 
 ## Prototype #1
 
 3D Printed Parts for Prototype #1:
-![image](/assets/img/blog#3/proto1part.jpg)
+![image](/assets/img/blog3/proto1part.jpg)
 
 Prototype #1 in action (barely):
 <iframe width="315" height="560" src="https://youtu.be/QVna_XHsR04" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -30,7 +30,7 @@ The 1mm eccentricity of the disk w.r.t. the center of fixed part of the drive an
 In the next iteration of the prototype, tolerances were adjusted in CAD i.e. 3 sets of cycloidal disks were printed in increments of 0.1mm shaved off the cycloidal profile in addition to clearance tolerances, 6 shafts in increments of 0.1mm from 1.0 to 1.5mm were tested with, the rollers were replaced with a cycloidal profile on the fixed housing.
 
 3D printed parts:
-![image](/assets/img/blog#3/proto2part.jpg)
+![image](/assets/img/blog3/proto2part.jpg)
 
 Mechanism in CAD:
 https://imgur.com/VbzoOd5
@@ -50,13 +50,13 @@ Having just one cycloidal disk introduces a lot of vibrations into the drive, a 
  
 ## Prototype #3
 
-![image](/assets/img/blog#3/proto3outline.png)
+![image](/assets/img/blog3/proto3outline.png)
 
 3D printed parts:
-![image](/assets/img/blog#3/proto3parts.jpg)
+![image](/assets/img/blog3/proto3parts.jpg)
 
 Assembled Camshaft assembly:
-![image](/assets/img/blog#3/assembledcamshaft.jpg)
+![image](/assets/img/blog3/assembledcamshaft.jpg)
  
 This drive was then tested for friction in the drive, noise of the drive and cycle tested for wear.
 
