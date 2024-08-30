@@ -9,7 +9,9 @@ author: [um]
 
 > An exercise into a more accessible actuator design for the modified Solo12
 
-Solo12 has a very compact and lightweight design which imposes dimensional constraints on the choice of drive. All joints, except the knee, can be directly driven, reducing the need to source timing belts and associated hardware.
+Solo12 has a very compact and lightweight design which imposes dimensional constraints on the choice of drive. All joints, except the knee, can be directly driven, reducing the need to source AT3 timing belts, pulleys and associated hardware.
+
+Alternative drive mechanism are explored in order to find a more accessible approach to quadruped joints i.e. in this case the cycloidal drive is fully 3D printed and only requires standard bearings.
 
 A FDM 3D printed cycloidal drive was initially designed to fit in a 5cmx5cmx5cm bounding box. At this scale, small dimensional variances introduce backlash into the cycloidal drive. To get a better understanding of the tolerances; an open cage cycloidal drive was prototyped and tested.
 
@@ -86,6 +88,19 @@ After assembly, the drive was tested for friction, noise and cycle tested for we
 
 After about an hour of intermittently cycling with the drill, the 3D printed discs started wearing at the profile, forming ABS powder and a lot of backlash is observed in the drive.
 
+### Current drive cost:
+
+| Parts | Cost (CAD) | Quantity |
+|---|---|---|
+| ABS | ~1.6$ | 79 grams |
+| [1603-2RS Bearing](https://www.amazon.ca/-/fr/Roulement-1603-2RS-caoutchouc-pr%C3%A9-lubrifi%C3%A9-graisse/dp/B08LBPSM1X/ref=sr_1_6?dib=eyJ2IjoiMSJ9.ti84m15yDUqLvImSaTObztfjQSy3eW0E7GxNDdjO0mBdc9GhWneKA76M5GwPHK1HiR2r7KFaqEajvwytieRBp6QGb1EM6SNJqTQ7-S6Lig8hTrGVeOY_quqlXRKQUwVxeKjwlOUxcMP9w-CRYNrKozpCRBoPkSG5fCA59P41e0n3jZdZnXfWpazko4b5GHR_vNf2_UrJqVaQY0_im2oeBmWkebpTX9o0qrtpTX2CTHgIkNF3O62Q9cR2v4sBPZCiB-w5-2lXOo8r-mv39Xwnl3Yxwi9YW2UUcjLcDg8Q3_g.EnlBfy-jY-9c8_LxVoT8lmUPbbFePV4Ioq0-yTOPBYA&dib_tag=se&keywords=1603-2rs&qid=1725058832&sr=8-6&th=1) | 3.2$ | 2 |
+| [M2x30mm](https://www.aliexpress.com/item/32810872544.html?spm=a2g0o.order_list.order_list_main.295.3bf61802k1RLhw) | 0.8$ | 10 |
+| [M2 Hex Nut](https://www.aliexpress.com/item/4000226223259.html?spm=a2g0o.order_list.order_list_main.310.3bf61802k1RLhw) | 0.36$ | 10 |
+| [MR128ZZ](https://www.aliexpress.com/item/32952690830.html?spm=a2g0o.order_list.order_list_main.82.3bf61802k1RLhw) | 0.4$ | 2 |
+| Total Cost: | 6.36$ |  |
+
 ## Conclusion
+
+This exercise helped the mechanical team better understand the long term drawbacks of a 3D printed drive at the aforementioned scale. The cycloidal drive quickly wears down and loses alot of its favorable properties. Quick way to reduce friction in the drive would be to replace the lobes of the cycloidal profile against which the disk moves with rollers but this brings with it additional hardware costs.
 
 Further explorations into more accessible alternatives to the dual-stage timing belt reduction will also be conducted in the near future, check back for bi-weekly updates. :)
