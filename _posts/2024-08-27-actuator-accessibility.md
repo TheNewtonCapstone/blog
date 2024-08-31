@@ -1,8 +1,8 @@
 ---
 title: "Actuator Accessibility"
-date: 2024-08-27
-categories: [META]
-tags: [team, meta, timeline, goals] 
+date: 2024-08-31
+categories: [MECH]
+tags: [mech, actuator, cycloidal, drive, timeline, goals] 
 author: [um]
 ---
 # Cycloidal Drive
