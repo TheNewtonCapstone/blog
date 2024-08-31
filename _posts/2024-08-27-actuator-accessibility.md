@@ -71,7 +71,7 @@ Having a single cycloidal disk introduces a lot of vibrations into the drive, so
  
 
 After assembly, the drive was tested for friction, noise and cycle tested for wear. The load during testing was 2 kgs at 1.75cm from the drive's center, resulting in a torque of `0.34 Nm` which is slightly higher than the stall torques listed on the MN4004 [BLDC website](https://store.tmotor.com/product/mn4004-kv300-motor-antigravity-type.html). This is still ~8x lower than the maximal output torque expected from the solo12 actuator (~2.7Nm), but is closer to torque values during resting / trotting gait.
-=======
+
 
 **First, to verify the working of the drive, it was hand driven:**
 
@@ -105,7 +105,5 @@ After about an hour of intermittently cycling with the drill, the 3D printed dis
 
 
 This exercise helped the mechanical team better understand the long term drawbacks of a 3D printed drive at the aforementioned scale. The cycloidal drive quickly wears down and loses alot of its favorable properties. Quick way to reduce friction in the drive would be to replace the lobes of the cycloidal profile against which the disk moves with rollers but this brings with it additional hardware costs. One could also have multiple cycloidal disks offset by smaller angles but this would keep decreasing the load pin diameter to a point where it would be impossible for the pins to be structural!
-=======
-
 
 Further explorations into more accessible alternatives to the dual-stage timing belt reduction will also be conducted in the near future, check back for bi-weekly updates. :)
