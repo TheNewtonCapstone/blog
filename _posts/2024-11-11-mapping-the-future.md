@@ -27,7 +27,7 @@ SLAM can be done using several different configurations of sensors, but ultimate
 
 Unfortunately, we could only get a demo of the libraries functioning with the IMU option disabled by the time of publishing this post. Look forward to an update from us–whether it’s groundbreaking or just mildly entertaining, we’re as curious as you are!
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=va1h6mMQ7AQ&feature=youtu.be" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=va1h6mMQ7AQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 What you see on the left hand side are the two image streams from the stereo camera, combined with the IR input to produce a “pose” (a red arrow and associated point cloud). Since we ran this VSLAM demo with the IMU option disabled, all the different poses were stacking on each other which results in a mapping of the room.
 ![gif](/assets/img/blog4/knuckles.gif)
