@@ -1,5 +1,5 @@
 ---
-title: "<Mapping the Future>"
+title: "Mapping the Future"
 date: 2024-11-11
 categories: [P&P]
 tags: [vslam, ros, nvblox, computer vision]     # TAG names should always be lowercase
@@ -9,9 +9,9 @@ author: [ra, mb]
 # Mapping the Future
 
 ## Introduction
-	Newton’s journey to becoming the bestest of boys passes through vision. In this post, we focus on Newton’s sight– a key enabler for autonomous navigation. There are many implementations that have been tried and tested, some more difficult than others, but ultimately achieve the same functionality: SLAM, which stands for Simultaneous Localization and Mapping. It is a process in which a robot builds a map of an unknown environment while simultaneously determining its own position within that map. 
+Newton’s journey to becoming the bestest of boys passes through vision. In this post, we focus on Newton’s sight– a key enabler for autonomous navigation. There are many implementations that have been tried and tested, some more difficult than others, but ultimately achieve the same functionality: SLAM, which stands for Simultaneous Localization and Mapping. It is a process in which a robot builds a map of an unknown environment while simultaneously determining its own position within that map. 
 
-  There are different types of SLAM currently used on the market; they mainly differ in the sensors used for input. There are LiDAR based libraries, and camera based libraries. For Newton, a camera based approach made more sense as it could be further utilized for computer vision and customizing missions. There are a few different options when it comes to camera based SLAM, mainly NVIDIA isaac ROS VSLAM and ORBSLAM3. We decided to go with the more established and documented NVIDIA library as it is built upon ROS Humble and is a more mainstream library to use for this use-case.
+There are different types of SLAM currently used on the market; they mainly differ in the sensors used for input. There are LiDAR based libraries, and camera based libraries. For Newton, a camera based approach made more sense as it could be further utilized for computer vision and customizing missions. There are a few different options when it comes to camera based SLAM, mainly NVIDIA isaac ROS VSLAM and ORBSLAM3. We decided to go with the more established and documented NVIDIA library as it is built upon ROS Humble and is a more mainstream library to use for this use-case.
 
 ## Setup Summary
 In this section, we are going to go through the setup of NVIDIA isaac ROS VSLAM and some hurdles faced along the way. We tested running the Isaac ROS Visual SLAM and Nvblox libraries using the Intel Realsense D435 camera on a desktop running Ubuntu 22.04, and with the exception of some minor hurdles, the process was straightforward. Here is a list of the steps taken:
@@ -27,12 +27,12 @@ SLAM can be done using several different configurations of sensors, but ultimate
 
 Unfortunately, we could only get a demo of the libraries functioning with the IMU option disabled by the time of publishing this post. Look forward to an update from us–whether it’s groundbreaking or just mildly entertaining, we’re as curious as you are!
 
-<iframe width="560" height="315" src="https://youtu.be/va1h6mMQ7AQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=va1h6mMQ7AQ&feature=youtu.be" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 What you see on the left hand side are the two image streams from the stereo camera, combined with the IR input to produce a “pose” (a red arrow and associated point cloud). Since we ran this VSLAM demo with the IMU option disabled, all the different poses were stacking on each other which results in a mapping of the room.
 ![gif](/assets/img/blog4/knuckles.gif)
 
-<iframe width="560" height="315" src="https://youtu.be/va1h6mMQ7AQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=dwyfydG_lTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 This video shows the Nvblox library in action. With the VSLAM instance running, we are able to use Nvblox to essentially create a constant stream of mappings. Since the IMU is not enabled, the software is not able to store the mapping outside of its current view. At the 35 second mark the camera is set down as the person moves backwards, and you can kind of see the person (and heat map) slowly move away from the point of origin (where the camera is placed). 
 
