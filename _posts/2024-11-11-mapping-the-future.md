@@ -1,4 +1,4 @@
-where you've---
+---
 title: "Mapping the Future"
 date: 2024-11-11
 categories: [P&P]
@@ -34,7 +34,7 @@ What you see on the left hand side are the two image streams from the stereo cam
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/dwyfydG_lTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-This video shows the Nvblox library in action. With the VSLAM instance running, we are able to use Nvblox to essentially create a constant stream of mappings. Since the IMU is not enabled, the software is not able to store the mapping outside of its current view. At the 35 second mark the camera is set down as the person moves backwards, and you can kind of see the person (and heat map) slowly move away from the point of origin (where the camera is placed). https://www.youtube.com/watch?v=
+This video shows the Nvblox library in action. With the VSLAM instance running, we are able to use Nvblox to essentially create a constant stream of mappings. Since the IMU is not enabled, the software is not able to store the mapping outside of its current view. At the 35 second mark the camera is set down as the person moves backwards, and you can kind of see the person (and heat map) slowly move away from the point of origin (where the camera is placed).
 
 ## Next Steps
 
