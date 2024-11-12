@@ -1,4 +1,4 @@
----
+where you've---
 title: "Mapping the Future"
 date: 2024-11-11
 categories: [P&P]
@@ -27,14 +27,14 @@ SLAM can be done using several different configurations of sensors, but ultimate
 
 Unfortunately, we could only get a demo of the libraries functioning with the IMU option disabled by the time of publishing this post. Look forward to an update from us–whether it’s groundbreaking or just mildly entertaining, we’re as curious as you are!
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=va1h6mMQ7AQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/va1h6mMQ7AQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 What you see on the left hand side are the two image streams from the stereo camera, combined with the IR input to produce a “pose” (a red arrow and associated point cloud). Since we ran this VSLAM demo with the IMU option disabled, all the different poses were stacking on each other which results in a mapping of the room.
 ![gif](/assets/img/blog4/knuckles.gif)
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=dwyfydG_lTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dwyfydG_lTI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-This video shows the Nvblox library in action. With the VSLAM instance running, we are able to use Nvblox to essentially create a constant stream of mappings. Since the IMU is not enabled, the software is not able to store the mapping outside of its current view. At the 35 second mark the camera is set down as the person moves backwards, and you can kind of see the person (and heat map) slowly move away from the point of origin (where the camera is placed). 
+This video shows the Nvblox library in action. With the VSLAM instance running, we are able to use Nvblox to essentially create a constant stream of mappings. Since the IMU is not enabled, the software is not able to store the mapping outside of its current view. At the 35 second mark the camera is set down as the person moves backwards, and you can kind of see the person (and heat map) slowly move away from the point of origin (where the camera is placed). https://www.youtube.com/watch?v=
 
 ## Next Steps
 
@@ -43,6 +43,3 @@ The diagram above shows a general overview of what our system architecture will 
 The camera outputs at 6-90 fps depending on the resolution and is the bottleneck in this case. It is probably best to interpolate the IMU’s data feed to match the camera’s timestamps. We suspect that the motors would benefit greatly from more IMU inputs, so it is best to keep the IMU poll rate high. Thankfully, the Realsense SDK automatically adds a timestamp to the depth readings it generates, so we only have to consider the IMU in this case.
 
 Once that is all done, we can test the setup on our Jetson and pray that it can handle running everything.
-
-
-	
