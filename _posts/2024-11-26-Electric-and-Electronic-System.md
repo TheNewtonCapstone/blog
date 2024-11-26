@@ -1,3 +1,11 @@
+---
+title: "Electric And Electronic System"
+date: 2024-11-26
+categories: [ELEC]
+tags: [circuits, motors, drivers]     # TAG names should always be lowercase
+author: [ca]
+---
+
 # Electric And Electronic System
 
 ## Introduction
