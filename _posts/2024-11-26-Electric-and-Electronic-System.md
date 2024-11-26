@@ -6,7 +6,7 @@ For the Newton electrical and electronic systems, the objective is to make the s
 
 ## High Level Circuit Diagram
 
-<img src="/assets/img/blog5/circuit" alt="Circuit Diagram" width="500"/>
+<img src="/assets/img/blog5/circuit.png" alt="Circuit Diagram" width="700"/>
 
 ## Circuit Elements
 
@@ -40,6 +40,7 @@ For motor controllers, we tested 5 different Electronic Speed Controllers. Below
 
 For the Hall sensors, we realized that for most drivers this was a requirement, and that our encoders did not generate the right outputs for these sensors, therefore these could not be used.
 We therefore chose the RioRand 300W 5-50V PWM for its ease of use and ease of access, as almost anyone could buy this product from Amazon.
+After testing, we also realized a minor problem, which is that the direction pin of the RioRand driver does not switch the motor direction when the pin is given a low signal, it only switches when the pin is pull towards ground, which most usual microcontrollers cannot do. We therefore had to create a quick transistor switching circuit, which would allow for the quick and easy programming of the motor directions.
 
 <img  align="right" src="/assets/img/blog5/logic_level_shifter.png" alt="Logic Level Shifter" width="200"/>
 
