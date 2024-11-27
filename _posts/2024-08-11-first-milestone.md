@@ -3,7 +3,7 @@ title: "First Milestone!"
 date: 2024-08-11
 categories: [META]
 tags: [team, meta, timeline, goals] 
-author: [amp, sis, gc, her]
+author: [amp, sis, ca, her]
 ---
 
 > A journey of a thousand miles begins with a single step
