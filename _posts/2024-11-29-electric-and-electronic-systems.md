@@ -1,6 +1,6 @@
 ---
 title: "Electric And Electronic Systems"
-date: 2024-11-26
+date: 2024-11-29
 categories: [ELEC]
 tags: [circuits, motors, drivers]     # TAG names should always be lowercase
 author: [ca]
