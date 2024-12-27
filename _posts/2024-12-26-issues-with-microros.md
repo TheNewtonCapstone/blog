@@ -222,7 +222,9 @@ However, for other projects, like our TWIP controller, the learning investment m
 You may not know whe the complexity-benefit ratio is, but keep a mental note as you go. 
 
 
-## The Takeaway
-Shit, you read so far? hmmmmmmmmmmmmmm I dunno, you tell me! 
-What was your take away? 
+## The Takeaway 
+
+Whether you choose micro-ROS or any other tools, be prepared for the leaks. 
+In the world of software, they're not a matter of if, but when. Sometimes, as we learned, the simplest solution might be the most robust one.
+
 
