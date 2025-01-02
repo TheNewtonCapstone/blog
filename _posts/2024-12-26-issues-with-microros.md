@@ -1,6 +1,6 @@
 ---
 title: "Less is More: Why We Abandoned Micro-ROS for UART"
-date: 2024-11-29
+date: 2024-12-26
 categories: [Firmware]
 tags: [ros, control, motors, micro-ros, communication]     # TAG names should always be lowercase
 author: sis
@@ -9,13 +9,13 @@ author: sis
 
 If you've worked on robotics projects, chances are someone has mentioned ROS (Robot Operating System). And if you're anything like me, you’re always eager to try out shiny new tools.
 
-When we started working on our Two Wheel Inverted Pendulum (TWIP) project, I was determined to use ROS—mainly because it's a that counteless robotics videos swear by. 
+When we started working on our TWIP (Two Wheel Inverted Pendulum) project, I was determined to use ROS—mainly because it's a system that countless robotics videos swear by. 
 Augusto saw things differenlty. 
 He argued that *"ROS is massive, complex, requires a steep learning curve, and is most definitely overkill for what we're doing."* 
 His point was valid, but I wanted to explore what ROS could offer. Of course, I didn’t say that.
 Instead, I just said that communication shouldn’t be our main focus—so why not let ROS handle it? 
 
-Since then, our relationship with the ROS ecosystem has been, to put it mildly, turbulent.There is much to cover about the subject. This blog explores a small part of the story, mainly, using Micro ROS. 
+Since then, our relationship with the ROS ecosystem has been, to put it mildly, turbulent. There is much to cover about the subject. This blog explores a small part of the story, by mainly using micro-ROS. 
 
 We aim to show how sometimes software tools—or, as alluded to in this post, abstractions—can be deceptively simple.
 
@@ -35,7 +35,7 @@ TWIP is a control system problem.
 As any control system, it requires precise timing and immediate response — It’s like trying to balance a broomstick on your palm.  
 Just as your hand must move quickly and precisely to keep the broomstick upright, our robot's motors need to respond instantly to keep the robot balanced. 
 
-Timing is crucial.The system needs to know exactly when each measurement was taken and when each correction was applied
+Timing is crucial. The system needs to know exactly when each measurement was taken and when each correction was applied.
 
 Our initial setup for the TWIP robot comprised a Jetson Nano and an ESP32. The Jetson Nano handles high-level computations, including running an inference model for the control loop. The ESP32 interacts directly with the sensors and motors, providing sensor data and executing motor commands.
 
@@ -43,35 +43,35 @@ The figure below illustrates the setup.
 
 ![image](/assets/img/blog6/initial_arch.png)
 
-1. The IMU timer callback fires at a fixed rate (1kHz in our case) and publishes the pendulum's angle on `/imu_data` topic
-2. The control loop runs one iteration:
-    - Reads the current angle
-    - Calculates required corrective torque
-    - Publishes motor commands on the `motor_cmd` topic
-3. ESP32 subscribing to the `/motor_cmd` topic fires a callback when new data is sent
-4. The ESP32 output a pwm value which translate to torque
+1. The IMU timer callback fires at a fixed rate (1kHz in our case) and publishes the pendulum's angle on the `/imu_data` topic
+2. The control loop runs one iteration, by:
+    - Reading the current angle
+    - Calculating required corrective torque
+    - Publishing motor commands on the `motor_cmd` topic
+3. The ESP32 subscribes to the `/motor_cmd` topic and triggers the callback when new data is received
+4. The ESP32 outputs a PWM (Pulse Width Modulation) value which translates to output torque
 5. The physical system responds
 6. The cycle repeats with fresh IMU data
 
-### The Role of micro-ROS and Micro-Ros Agent
+### The Role of micro-ROS and micro-Ros Agent
 
-Microcontrollers like the ESP32 typically lack the computational power and memory to run a full ROS 2 node (remember Augusto’s point about this ?).
+Microcontrollers like the ESP32 typically lack the computational power and memory to run a full ROS 2 node (remember Augusto’s point about this?).
 
 To address this limitation, we used a micro-ROS Agent.
 
 The micro-ROS Agent running on the Jetson Nano connects to the microcontroller's micro-ROS client, enabling it to communicate with other nodes in the ROS 2 network as if it were a full-fledged ROS 2 node. 
 The ESP32 runs the micro-ROS client and connects to the micro-ROS Agent via UART, Wi-Fi, or Ethernet. In our case the micro controller can publish and subscribe to the topics `/imu_data` and `/motor_cmd`
 
-For more details about micro-ros agent, you can refer to the [micro-ROS Agent GitHub repository](https://github.com/micro-ROS/micro-ROS-Agent).
+For more details about micro-ROS agent, you can refer to the [micro-ROS Agent GitHub repository](https://github.com/micro-ROS/micro-ROS-Agent).
 
-Here’a simplified version of initial code. We initialize Wi-Fi transport, set up the publisher for IMU data, and subscribe to motor commands. The timer and executor ensure continuous data flow, triggering the motor control loop based on incoming sensor readings.
+Here's a simplified version of the initial code. We initialize Wi-Fi transport, set up the publisher for IMU data, and subscribe to motor commands. The timer and executor ensure continuous data flow, triggering the motor control loop based on incoming sensor readings.
 
 ```cpp
 
 // Core micro-ROS setup
 void setup_uros() {
   // Setup wifi transport
-  set_microros_wifi_transports("SSID", "PASSWORD", "192.XXX.X.XXX", 8888);
+  set_microros_wifi_transports("SSID", "PASSWORD", "192.XXX.XXX.XXX", 8888);
 
   // Initialize node
   allocator = rcl_get_default_allocator();
@@ -113,7 +113,7 @@ void motor_cmd_cb(const void *msgin) {
 
 ## When Abstractions Started Leaking
 
-There’s a very interesting blog written by Joel Spolsky that highlights a key insight:
+There’s a very interesting [blog](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/) written by Joel Spolsky that highlights a key insight:
 
 > All non-trivial abstractions, to some degree, are leaky.
 
@@ -132,7 +132,7 @@ Micro-ROS introduces Quality of Service (QoS) settings to manage message deliver
 
 Reliability setting offers two options: RELIABLE, which guarantees message delivery with retries but may cause delays, and BEST_EFFORT, where messages are dropped if delivery fails. 
 
-Additionally, Network Congestion Batching helps reduce overhead by batching messages during network congestion, improving communication efficiency.
+Additionally, NBC (Network Congestion Batching) helps reduce overhead by batching messages during network congestion, improving communication efficiency.
 
 ### The Impact on Control
 
@@ -140,8 +140,8 @@ We encountered a classic control systems problem where seemingly reasonable desi
 
 The combination of the RELIABLE QoS setting, network congestion, and a small but deadly 5ms delay resulted in erratic motor behavior. For every 1 IMU callback, 10 motor commands were fired, overwhelming the control loop. This delay alone, probably cost us two weeks of development time.
 
-1. The IMU timercallback fires at a fixed rate (1kHz) and publishes the pendulum's angle
-2. Initial motor command triggers with a 5ms set_torque() delay
+1. The IMU timer callback fires at a fixed rate (1kHz) and publishes the pendulum's angle
+2. An initial motor command triggers with a 5ms set_torque() delay
 3. During this blocking delay, the executor itself is blocked
     - No new callbacks can be processed
     - IMU readings can't be handled
@@ -157,12 +157,12 @@ The combination of the RELIABLE QoS setting, network congestion, and a small but
 6. Next blocking delay occurs, repeating the cycle
 
 ### Leaky Abstraction
-A leaky abstraction occurs when high-level interface (microros in our case) fails to completely hide low-level implementation details, forcing you to understand the underlying complexity that it was trying to hide. My initial reasoning was that we should avoid communication and use an abstraction. However, the "simple" abstraction provided by micro-ROS forced us to confront complex , including:
+A leaky abstraction occurs when high-level interface (micro-ROS in our case) fails to completely hide low-level implementation details, forcing you to understand the underlying complexity that it was trying to hide. My initial reasoning was that we should avoid communication and use an abstraction. However, the "simple" abstraction provided by micro-ROS forced us to confront complex topics, including:
 
 - Network transport layers
 - Message buffering mechanisms
 
-In hindsight, there is a couple of solutions we could have implemented, but we did not understand the system at the time.
+In hindsight, there is a couple of solutions we could have implemented, but not knowing the system well, we simply overlooked.
 We ended up using a simpler solution: UART communication. 
 
 ### A Simpler Solution
@@ -192,7 +192,7 @@ Other than the serialization and deserialization, the system was:
 
 ## The Paradox of Abstration
 
-Here's the paradox of abstractions that Joel Spolsky points out in his blog: 
+In Spolsky's [blog](https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/), he points out: 
 > "Abstractions save us time working, but they don't save us time learning."
 
 When abstractions work, they're magical! But when they fail, you need to understand:
@@ -206,14 +206,14 @@ So, should you use micro-ROS in your project?
 
 As with any engineering decisions, there's unfortunately no one-size-fits-all answer. 
 
-However, here’s a framework that may guide your decision making, not just for micro-ROS, but for any tool:
+However, here’s a framework that may guide your decision making for any tool, not just for micro-ROS:
 
 Before adopting any new technology, ask yourself 2 questions:
  - What's the learning budget?
- - What's the complexity-benefit ratio
+ - What's the complexity-benefit ratio?
 
 
-Some frameworks, are worth the investment because they solve a problem harder than. 
+Some frameworks are worth the investment because they solve a bigger, harder, overall problem. 
 For example, we stuck with ROS for our newton project because of the perception and planning aspect introduces camera, imu and sensor fusion that was easier to deal with ROS
 Here's the topic list
 We have encoured a lot of annoyance with the framework but the problem solved is worth. 
