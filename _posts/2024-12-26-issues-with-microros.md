@@ -123,9 +123,6 @@ We experienced this firsthand.
 Our challenge began with motor control issues while running TWIP. 
 Sometimes the robot responded perfectly, but more often than not, the motors behaved erratically, with noticeable jittering.
 
-- Quality of Service (QoS) settings
-- Network congestion and the concept of batching
-
 ### Quality of Service (QoS) and Network Congestion
 
 Micro-ROS introduces Quality of Service (QoS) settings to manage message delivery and buffering. The History Depth option allows storing the last N (specified constant) messages. The 
