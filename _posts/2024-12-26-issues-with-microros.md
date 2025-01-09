@@ -214,7 +214,7 @@ Some frameworks are worth the investment because they solve a bigger, harder, ov
 For example, we stuck with ROS for our Newton project because the perception and planning aspect introduces a camera, IMU, and sensor fusion making it simpler to deal with ROS.
 We have encountered a lot of annoyances with ROS but the overall problem that it solves is worth the trouble. 
 
-However, for other projects, like our TWIP controller, the learning investment might outweigh the benefits.
+That being said, for other projects, like TWIP, the learning investment might have outweighed the benefits.
 You may not know what the complexity-benefit ratio is, but keep it in mind as you go through exploring the technology. 
 
 
