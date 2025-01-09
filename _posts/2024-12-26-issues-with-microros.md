@@ -218,7 +218,7 @@ For example, we stuck with ROS for our Newton project because the perception and
 We have encountered a lot of annoyances with ROS but the overall problem that it solves is worth the trouble. 
 
 However, for other projects, like our TWIP controller, the learning investment might outweigh the benefits.
-You may not know whe the complexity-benefit ratio is, but keep a mental note as you go. 
+You may not know what the complexity-benefit ratio is, but keep it in mind as you go through exploring the technology. 
 
 
 ## The Takeaway 
