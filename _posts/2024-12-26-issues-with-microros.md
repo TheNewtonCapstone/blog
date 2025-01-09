@@ -221,6 +221,6 @@ You may not know what the complexity-benefit ratio is, but keep it in mind as yo
 ## The Takeaway 
 
 Whether you choose micro-ROS or any other tools, be prepared for the leaks. 
-In the world of software, they're not a matter of if, but when. Sometimes, as we learned, the simplest solution might be the most robust one.
+In the world of software, they're not a matter of if, but when. Sometimes, as we learned, the simplest solution might be the most robust one. Or it might be too robust, but requires heavy investment in learning it.
 
 
