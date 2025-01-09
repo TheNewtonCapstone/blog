@@ -182,7 +182,7 @@ void tx_task() {
 
 ```
 
-THAT IT! 
+**THAT'S IT!**
 Other than the serialization and deserialization, the system was:
 
 - Predictable
