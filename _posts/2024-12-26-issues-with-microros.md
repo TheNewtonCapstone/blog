@@ -151,7 +151,7 @@ The combination of the RELIABLE QoS setting, network congestion, and a small but
     - Queued commands execute in rapid succession
     - Each command based on increasingly stale data, thus responding to outdated pendulum positions
     - The system over-corrects, making the instability worse and generating more commands needing correction
-6. Next blocking delay occurs, repeating the cycle
+6. Next blocking delay occurs, repeating the cycle and accelerating the positive feedback loop
 
 ### Leaky Abstraction
 A leaky abstraction occurs when high-level interface (micro-ROS in our case) fails to completely hide low-level implementation details, forcing you to understand the underlying complexity that it was trying to hide. My initial reasoning was that we should avoid communication and use an abstraction. However, the "simple" abstraction provided by micro-ROS forced us to confront complex topics, including:
