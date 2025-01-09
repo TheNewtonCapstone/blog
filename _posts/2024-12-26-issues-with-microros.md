@@ -214,7 +214,7 @@ Before adopting any new technology, ask yourself 2 questions:
 
 
 Some frameworks are worth the investment because they solve a bigger, harder, overall problem. 
-For example, we stuck with ROS for our newton project because of the perception and planning aspect introduces camera, imu and sensor fusion that was easier to deal with ROS
+For example, we stuck with ROS for our Newton project because the perception and planning aspect introduces a camera, IMU, and sensor fusion making it simpler to deal with ROS.
 Here's the topic list
 We have encoured a lot of annoyance with the framework but the problem solved is worth. 
 
